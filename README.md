@@ -20,8 +20,8 @@ This example uses the library to call the /api/myself/ endpoint
 ```python
 from lbcapi import api
 
-hmac_key = Your HMAC key here
-hmac_secret = Your HMAC secret here
+hmac_key = 'You HMAC secret here'
+hmac_secret = 'Your HMAC secret here'
 
 conn = api.hmac(hmac_key, hmac_secret)
 conn.call('GET', '/api/myself/').json()
@@ -37,8 +37,8 @@ Pagination seems to cause problems so, here is an example on how to do it with t
 import urllib.parse
 from lbcapi import api
 
-hmac_key = Your HMAC key here
-hmac_secret = Your HMAC secret here
+hmac_key = 'Your HMAC key here'
+hmac_secret = 'Your HMAC secret here'
 
 conn = api.hmac(hmac_key, hmac_secret)
 ads_json = conn.call('GET', '/api/ads/').json()
