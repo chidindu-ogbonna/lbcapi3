@@ -17,7 +17,7 @@ Usage example (using HMAC)
 ============
 This example uses the library to call the /api/myself/ endpoint
 
-```
+```python
 from lbcapi import api
 
 hmac_key = Your HMAC key here
@@ -33,8 +33,8 @@ https://localbitcoins.com/api-docs/
 Pagination example
 ============
 Pagination seems to cause problems so, here is an example on how to do it with this library
-```
-import urlparse
+```python 
+import urllib.parse
 from lbcapi import api
 
 hmac_key = Your HMAC key here
@@ -42,8 +42,8 @@ hmac_secret = Your HMAC secret here
 
 conn = api.hmac(hmac_key, hmac_secret)
 ads_json = conn.call('GET', '/api/ads/').json()
-parsed = urlparse.urlparse(ads_json['pagination']['next'])
-params = urlparse.parse_qs(parsed.query)
+parsed = urllib.parse.urlparse(ads_json['pagination']['next'])
+params = urllib.parse.parse_qs(parsed.query)
 ads_json_II = conn.call('GET', '/api/ads/', params=params).json()
 
 ```
